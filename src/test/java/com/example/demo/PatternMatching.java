@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class InstanceOfExample {
+public class PatternMatching {
 
     @Test
     public void instanceOfExample(){
@@ -26,5 +26,19 @@ public class InstanceOfExample {
             musicFile.playMusic();
         }
 
+    }
+
+    private void patternMatchingExample(Object obj){
+        //before
+        if(obj instanceof String){      // a) test: is obj a string
+            String s = (String) obj;    // b) declaration of new variable s
+            //use                       // c) casting of obj into a string
+        }
+
+
+        //after
+        if(obj instanceof String s){
+            //use s
+        }
     }
 }
