@@ -35,4 +35,20 @@ public class VirtualThreads {
             System.out.println("Completed ");
         }
     }
+
+    @Test
+    void testExample3_platformThreads(){
+        Thread.Builder builder = Thread.ofPlatform().name("worker-", 0);
+        Thread t1 = builder.start(()-> System.out.println("task1 : " + Thread.currentThread().getName()));   // name "worker-0"
+        Thread t2 = builder.start(()-> System.out.println("task2: " + Thread.currentThread().getName()));   // name "worker-1"
+        System.out.println("is this a virtual Thread ? : "+ t1.isVirtual());
+    }
+
+    @Test
+    void testExample3_virtualThreads(){
+        Thread.Builder builder = Thread.ofVirtual().name("worker-", 0);
+        Thread t1 = builder.start(()-> System.out.println("task1 : " + Thread.currentThread().getName()));   // name "worker-0"
+        Thread t2 = builder.start(()-> System.out.println("task2: " + Thread.currentThread().getName()));   // name "worker-1"
+        System.out.println("is this a virtual Thread ? : "+ t1.isVirtual());
+    }
 }
