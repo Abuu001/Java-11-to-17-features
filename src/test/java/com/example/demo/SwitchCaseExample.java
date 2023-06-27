@@ -9,8 +9,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 public class SwitchCaseExample {
-
-
     @ParameterizedTest()
     @ValueSource(strings = "BMW")
     void switchCaseTest(String brand){
